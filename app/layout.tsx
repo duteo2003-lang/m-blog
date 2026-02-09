@@ -15,7 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The M-Blog",
   description: "The M-Blog is a blog about the latest news and trends in the world.",
+  verification: {
+    google: "HEXRY_HuGFxiCIM-sv1NhSlqnG305-59JH39BLugIpE",
+  },
 };
+
 
 export default function RootLayout({
   children,
