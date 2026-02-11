@@ -2,30 +2,36 @@
 
 :root {
   /* Base colors */
-  --primary: #000000;
-  --secondary: #ffffff;
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #034748;
+  /* Dark Teal */
+  --secondary: #1481BA;
+  /* Ocean Blue */
+  --background: #F4FBFD;
+  /* Very light sky tint */
+  --foreground: #001021;
+  /* Ink Black */
 
-  /* Theme colors - Light mode */
-  --color-text-primary: #18181b;
-  --color-text-secondary: #27272a;
-  --color-text-muted: #71717a;
-  --color-text-accent: #2563eb;
+  /* Text colors */
+  --color-text-primary: #001021;
+  /* Deep readable */
+  --color-text-secondary: #034748;
+  /* Teal emphasis */
+  --color-text-muted: #4b5563;
+  /* Neutral gray */
+  --color-text-accent: #1481BA;
+  /* Ocean Blue */
 
-  --color-bg-code: #f4f4f5;
-  --color-bg-surface: #fafafa;
+  /* Backgrounds */
+  --color-bg-code: #E6F6FB;
+  /* Soft sky */
+  --color-bg-surface: #FFFFFF;
+  /* Cards */
+  --color-bg-accent: #11B5E4;
+  /* Sky Surge */
 
-  --color-border-default: #e4e4e7;
-  --color-border-accent: #bfdbfe;
-
-  /* Spacing scale */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
+  /* Borders */
+  --color-border-default: #D0ECF5;
+  --color-border-accent: #0CAADC;
 }
 
 /* Dark mode theme */
@@ -92,6 +98,7 @@
   --color-text-accent: var(--color-text-accent);
   --color-bg-code: var(--color-bg-code);
   --color-bg-surface: var(--color-bg-surface);
+  --color-bg-accent: var(--color-bg-accent);
   --color-border-default: var(--color-border-default);
   --color-border-accent: var(--color-border-accent);
 }
