@@ -7,7 +7,7 @@ import Image from 'next/image';
 interface ToolCardProps {
   tool: ToolView;
 }
-
+export const revalidate = 300;
 export function ToolCard({ tool }: ToolCardProps) {
   return (
     <article
