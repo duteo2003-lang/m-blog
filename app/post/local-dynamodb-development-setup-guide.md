@@ -146,4 +146,3 @@ You can now browse tables, run queries, and inspect data stored in your local Dy
 * NoSQL Workbench provides a GUI for viewing and querying local DynamoDB data
 
 This setup enables fast, isolated, and production-like DynamoDB development on local machines.
-
