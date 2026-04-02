@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "../utils/posts";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { MarkDownComponents } from "../components/mark-down-components";
+import { MarkDownComponents } from "@site/blog/components/mark-down-components";
 import { formatDate } from "@/app/common/utils/common-util";
 import {
   colors,

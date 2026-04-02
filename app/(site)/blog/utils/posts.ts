@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Post } from '../types/post';
+import { Post } from '@site/blog/types/post';
 
-const postsDirectory = path.join(process.cwd(), 'app/post');
+const postsDirectory = path.join(process.cwd(), 'app/(site)/post');
 
 export function getAllPosts(): Post[] {
     // Get all markdown files from the posts directory

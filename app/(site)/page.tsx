@@ -1,7 +1,7 @@
-import { getAllPosts } from "./utils/posts";
-import { PostCard } from "./components/post-card";
-import { colors, container } from "../design-system/token";
-import { cn } from "../design-system/utils";
+import { getAllPosts } from "@/app/(site)/blog/utils/posts";
+import { PostCard } from "@/app/(site)/blog/components/post-card";
+import { colors, container } from "@/app/design-system/token";
+import { cn } from "@/app/design-system/utils";
 export default function BlogPage() {
   const postList = getAllPosts();
   return (
