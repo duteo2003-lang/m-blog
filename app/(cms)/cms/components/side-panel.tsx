@@ -6,12 +6,12 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
     {
-        label: "Tools",
-        href: "/cms/tools",
-    },
-    {
         label: "Dashboard",
         href: "/cms",
+    },
+    {
+        label: "Tools",
+        href: "/cms/tools",
     },
     {
         label: "Posts",
