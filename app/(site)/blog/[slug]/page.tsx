@@ -33,7 +33,13 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
   }
 
   return (
-    <div className={cn("min-h-screen py-6")}>
+    <div
+      className={cn(
+        "min-h-screen py-6",
+
+        colors.background.surface,
+      )}
+    >
       <div className={cn(container.maxWidth["4xl"], "mx-auto")}>
         <Link
           href={ROUTES.BLOG}
@@ -44,7 +50,6 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
         <article
           className={cn(
             container.padding.desktop,
-            colors.background.surface,
             spacing.block,
             "rounded-lg shadow-sm py-2  ",
           )}
