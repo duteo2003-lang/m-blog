@@ -1,4 +1,4 @@
-import { createTool } from "../actions/too-action";
+import { createTool } from "../actions/tool-action";
 import { ToolForm } from "../components/tool-form";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

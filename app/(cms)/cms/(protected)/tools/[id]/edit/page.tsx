@@ -1,7 +1,7 @@
 import { prisma } from "@/app/lib/prisma";
 import { notFound } from "next/navigation";
 import { ToolForm } from "../../components/tool-form";
-import { updateTool } from "../../actions/too-action";
+import { updateTool } from "../../actions/tool-action";
 
 export default async function EditToolPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;

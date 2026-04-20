@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "../utils/posts";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { MarkDownComponents } from "@site/blog/components/mark-down-components";
@@ -13,22 +12,22 @@ import {
 } from "@/app/design-system/token";
 import { cn } from "@/app/design-system/utils";
 import { ROUTES } from "@/app/common/constant";
+import { prisma } from "@/app/lib/prisma";
 
 export async function generateStaticParams() {
-  const postsData = getAllPosts();
-  return postsData.map((post) => ({
-    slug: post.slug,
-  }));
+  const posts = await prisma.post.findMany({ select: { slug: true } });
+  return posts.map((post) => ({ slug: post.slug }));
 }
-
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPostPage({ params }: BlogPostProps) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
-
+  // Fetch from MongoDB
+  const post = await prisma.post.findUnique({
+    where: { slug },
+  });
   if (!post) {
     notFound();
   }
@@ -58,7 +57,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
               spacing.block,
             )}
           >
-            {formatDate(post.date)}
+            {formatDate(post.createdAt.toISOString())}
           </p>
           <div className="max-w-none">
             <ReactMarkdown

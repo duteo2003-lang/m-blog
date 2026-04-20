@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Post } from "../types/post";
+import { PostView } from "../types/post";
 import { formatDate } from "@/app/common/utils/common-util";
 import { colors, typography } from "@/app/design-system/token";
 import { cn } from "@/app/design-system/utils";
+import { Badge } from "@/components/ui/badge";
 
 interface PostCardProps {
-    post: Post;
+    post: PostView;
 }
 export const PostCard = ({ post }: PostCardProps) => {
     return (
@@ -13,7 +14,11 @@ export const PostCard = ({ post }: PostCardProps) => {
             key={post.id}
             className={cn(colors.background.surface, "p-6 rounded-lg shadow-sm border border-border-default")}
         >
-
+            <div className="flex flex-col gap-2">
+                {post.tags.map((tag) => (
+                    <Badge key={tag} >{tag}</Badge>
+                ))}
+            </div>
             <Link href={`/blog/${post.slug}`}>
                 <h2 className={cn(colors.text.accent, "hover:opacity-80 transition-opacity")}>{post.title}</h2>
             </Link>

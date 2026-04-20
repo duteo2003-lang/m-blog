@@ -6,7 +6,7 @@ import { colors } from "@/app/design-system/token";
 import { cn } from "@/app/design-system/utils";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula, vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface CodeBlockProps {
     children: string;

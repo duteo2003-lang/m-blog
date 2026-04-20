@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "The M-Blog",
+  icons: {
+    icon: "/favicon.png",
+  },
   description: "The M-Blog is a blog about the latest news and trends in the world.",
   verification: {
     google: "HEXRY_HuGFxiCIM-sv1NhSlqnG305-59JH39BLugIpE",

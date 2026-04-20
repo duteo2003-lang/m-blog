@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Trash2 } from "lucide-react";
-import { deleteTool } from "../actions/tool-action";
+import { deletePost } from "../actions/post-action";
 import { Button } from "@/components/ui/button";
 import {
     AlertDialog,
@@ -16,14 +16,14 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-export function DeleteToolButton({ id, toolName }: { id: string; toolName: string }) {
+export function DeletePostButton({ id, postTitle }: { id: string; postTitle: string }) {
     const [isPending, startTransition] = useTransition();
     const [open, setOpen] = useState(false);
 
     const handleDelete = () => {
         startTransition(async () => {
             try {
-                await deleteTool(id);
+                await deletePost(id);
                 setOpen(false);
             } catch (error) {
                 console.error(error);
@@ -43,13 +43,13 @@ export function DeleteToolButton({ id, toolName }: { id: string; toolName: strin
                 <AlertDialogHeader>
                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                     <AlertDialogDescription>
-                        This will permanently delete <span className="font-bold text-foreground">"{toolName}"</span>. 
+                        This will permanently delete <span className="font-bold text-foreground">&ldquo;{postTitle}&rdquo;</span>.
                         This action cannot be undone.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel disabled={isPending}>Cancel</AlertDialogCancel>
-                    <AlertDialogAction 
+                    <AlertDialogAction
                         onClick={(e) => {
                             e.preventDefault(); // Prevent modal from closing immediately
                             handleDelete();
