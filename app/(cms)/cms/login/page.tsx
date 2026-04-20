@@ -3,7 +3,7 @@ import { useActionState } from "react";
 import { login } from "./actions";
 
 export default function LoginPage() {
-    const [state, loginAction, isPending] = useActionState(login, null);
+    const [state, loginAction] = useActionState(login, null);
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <h1 className="text-2xl font-bold mb-4">CMS Login</h1>
@@ -28,7 +28,7 @@ export default function LoginPage() {
                 >
                     Sign in
                 </button>
-            {state?.error && <p className="text-red-500">{state.error}</p>}
+                {state?.error && <p className="text-red-500">{state.error}</p>}
             </form>
         </div>
     );

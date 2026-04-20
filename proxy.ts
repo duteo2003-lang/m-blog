@@ -19,7 +19,6 @@ export function proxy(request: NextRequest) {
   // We exclude the login page itself from this check to prevent loops
   if (!isLoginPage && !isLoggedIn) {
     const loginUrl = new URL(ROUTES.CMS_LOGIN, request.url);
-    loginUrl.searchParams.set("from", pathname);
     return NextResponse.redirect(loginUrl);
   }
 

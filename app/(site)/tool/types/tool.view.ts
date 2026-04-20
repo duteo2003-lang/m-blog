@@ -3,6 +3,7 @@ export interface ToolView {
     name: string;
     description: string;
     url: string[];
+    tags: string[];
     createdAt?: string;
     updatedAt?: string;
 }
