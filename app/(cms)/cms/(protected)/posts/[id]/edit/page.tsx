@@ -17,7 +17,7 @@ export default async function EditPostPage({ params }: { params: Promise<{ id: s
             <h1 className="text-3xl font-bold">Edit Post</h1>
             <div className="rounded-xl border bg-card p-6 shadow-sm">
                 <PostForm 
-                    initialData={post} 
+                    initialData={{...post, excerpt: post.excerpt ?? ""}} 
                     onSubmit={updateAction} 
                     submitLabel="Save Changes" 
                     cancelPath="/cms/posts" 
