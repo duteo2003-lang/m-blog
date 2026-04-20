@@ -9,6 +9,7 @@ export const toToolView = (tool: Tool): ToolView => {
         url: tool.url,
         createdAt: tool.createdAt.toISOString(),
         updatedAt: tool.updatedAt.toISOString(),
+        tags: tool.tags,
     };
 };
 export const toToolViewList = (tools: Tool[]): ToolView[] => {

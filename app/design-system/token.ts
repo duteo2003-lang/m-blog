@@ -15,6 +15,11 @@ export const colors = {
   },
 } as const;
 
+export const layout = {
+  flexCenter: "flex items-center justify-center",
+  flexBetween: "flex items-center justify-between",
+} as const;
+
 export const typography = {
   body: {
     base: "text-sm sm:text-base",

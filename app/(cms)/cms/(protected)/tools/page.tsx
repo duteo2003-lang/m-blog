@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { prisma } from "@/app/lib/prisma";
 
-import { Button } from "@/app/lib//button";
-import { Badge } from "@/app/design-system/badge";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/app/design-system/table";
-import { ToolView } from "@/app/(site)/tool/types/tool.view";
-
+import { Button } from "@/components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { colors, layout, typography } from "@/app/design-system/token";
+import { DeleteToolButton } from "./components/delete-tool-button";
 export default async function ToolsPage() {
     const tools = await prisma.tool.findMany({
         orderBy: {
@@ -16,23 +17,21 @@ export default async function ToolsPage() {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className={cn(layout.flexBetween)}>
                 <div>
                     <h1 className="text-2xl font-bold tracking-tight">
                         Tools Management
                     </h1>
-                    <p className="text-sm text-muted-foreground">
+                    <p className={cn(typography.body.base, colors.text.muted)}>
                         Manage your tools list
                     </p>
                 </div>
-
                 <Button asChild>
                     <Link href="/cms/tools/create">
                         + Create Tool
                     </Link>
                 </Button>
             </div>
-
             {/* Table */}
             <div className="rounded-xl border bg-background shadow-sm">
                 <Table>
@@ -101,12 +100,7 @@ export default async function ToolsPage() {
                                             </Link>
                                         </Button>
 
-                                        <Button
-                                            size="sm"
-                                            variant="destructive"
-                                        >
-                                            Delete
-                                        </Button>
+                                        <DeleteToolButton id={tool.id} toolName={tool.name} />
                                     </div>
                                 </TableCell>
                             </TableRow>
