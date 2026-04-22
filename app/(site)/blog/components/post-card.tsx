@@ -4,6 +4,7 @@ import { formatDate } from "@/app/common/utils/common-util";
 import { colors, typography } from "@/app/design-system/token";
 import { cn } from "@/app/design-system/utils";
 import { Badge } from "@/components/ui/badge";
+import TagList from "./tag-list";
 
 interface PostCardProps {
   post: PostView;
@@ -17,11 +18,7 @@ export const PostCard = ({ post }: PostCardProps) => {
         "p-6 rounded-lg shadow-sm border border-border-default",
       )}
     >
-      <div className="flex  gap-2">
-        {post.tags.map((tag) => (
-          <Badge className="uppercase" key={tag}>{tag}</Badge>
-        ))}
-      </div>
+      <TagList tags={post.tags} />
       <Link href={`/blog/${post.slug}`}>
         <h2
           className={cn(

@@ -34,7 +34,7 @@ export default function Header() {
         )}
       >
         {routes.map((route) => {
-          const isActive = pathname === route.href;
+          const isActive = pathname.startsWith(route.href);
           return (
             <NavLink
               key={route.href}

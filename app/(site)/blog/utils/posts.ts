@@ -1,61 +1,16 @@
-/* import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { PostView } from "@site/blog/types/post";
-
-const postsDirectory = path.join(process.cwd(), "app/(site)/post");
-
-export function getAllPosts(): PostView[] {
-  // Get all markdown files from the posts directory
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith(".md"))
-    .map((fileName) => {
-      // extract the slug from the file name
-      const slug = fileName.replace(/\.md$/, "");
-
-      // Read markdown file as string
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-
-      // Use gray-matter to parse the post metadata section
-      const { data, content } = matter(fileContents);
-
-      // Combine the data with the slug and content
-      return {
-        id: slug,
-        slug: slug,
-        title: data.title,
-        date: data.date,
-        excerpt: data.excerpt,
-        content: content,
-      } as Post;
-    });
-
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    // sort posts by date in descending order
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateB.getTime() - dateA.getTime();
+import Slugger from 'github-slugger';
+// Helper function to extract headings for the TOC
+export const extractHeadings = (content: string) => {
+  const slugger = new Slugger(); // Initialize a new slugger instance
+  const headingLines = content.split("\n").filter((line) => line.match(/^#{2,3}\s/));
+  
+  return headingLines.map((line) => {
+    const level = line.split(" ")[0].length;
+    const text = line.replace(/^#+\s/, "").trim();
+    
+    // Use the slugger to generate the ID
+    const id = slugger.slug(text); 
+    
+    return { level, text, id };
   });
-}
-
-export function getPostBySlug(slug: string): Post | undefined {
-  try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
-
-    return {
-      id: slug,
-      slug: slug,
-      title: data.title,
-      date: data.date,
-      excerpt: data.excerpt,
-      content: content,
-    } as Post;
-  } catch (error) {
-    console.error(`Error getting post by slug ${slug}: ${error}`);
-  }
-} */
+};

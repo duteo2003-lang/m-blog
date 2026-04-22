@@ -4,12 +4,12 @@ import { cn } from "@/app/design-system/utils";
 import { Components } from "react-markdown";
 import { CodeBlock } from "./code-block";
 export const MarkDownComponents: Components = {
-  h1: ({ children }) => <h1>{children}</h1>,
-  h2: ({ children }) => <h2>{children}</h2>,
-  h3: ({ children }) => <h3>{children}</h3>,
-  h4: ({ children }) => <h4>{children}</h4>,
-  h5: ({ children }) => <h5>{children}</h5>,
-  h6: ({ children }) => <h6>{children}</h6>,
+  h1: ({ ...props }) => <h1 {...props}>{props.children}</h1>,
+  h2: ({ ...props }) => <h2 {...props}>{props.children}</h2>,
+  h3: ({ ...props }) => <h3 {...props}>{props.children}</h3>,
+  h4: ({ ...props }) => <h4 {...props}>{props.children}</h4>,
+  h5: ({ ...props }) => <h5 {...props}>{props.children}</h5>,
+  h6: ({ ...props }) => <h6 {...props}>{props.children}</h6>,
   p: ({ children }) => (
     <p
       className={cn(
