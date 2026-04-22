@@ -1,4 +1,4 @@
-import { navlink } from "@/app/design-system/token";
+import { colors, navlink } from "@/app/design-system/token";
 import { cn } from "@/app/design-system/utils";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -13,6 +13,7 @@ export default function NavLink({ href, children, className, isActive }: NavLink
         <Link href={href}
             className={cn(
                 "relative",
+                colors.text.primary,
                 navlink.base,
                 isActive && navlink.active,
                 navlink.hover,

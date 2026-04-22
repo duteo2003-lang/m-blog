@@ -19,7 +19,7 @@ export const PostCard = ({ post }: PostCardProps) => {
     >
       <div className="flex  gap-2">
         {post.tags.map((tag) => (
-          <Badge key={tag}>{tag}</Badge>
+          <Badge className="uppercase" key={tag}>{tag}</Badge>
         ))}
       </div>
       <Link href={`/blog/${post.slug}`}>

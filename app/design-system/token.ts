@@ -57,7 +57,7 @@ export const container = {
 } as const;
 
 export const navlink = {
-  base: "relative px-4",
+  base: "relative px-4 ",
   active: "text-[var(--color-text-accent)]",
   hover: `after:absolute after:bottom-[-2px] after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[2px] 
   after:bg-[var(--color-text-accent)] after:scale-x-0 after:origin-center after:transition-all after:duration-300 after:ease-in-out 

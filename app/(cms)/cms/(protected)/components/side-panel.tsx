@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   {
     label: "Dashboard",
-    href: "/cms",
+    href: "/cms/dashboard",
   },
   {
     label: "Tools",
@@ -30,7 +30,7 @@ export default function SidePanel() {
     >
       <nav className="p-4 space-y-1 flex flex-col gap-2">
         {navItems.map(({ href, label }) => {
-          const isActive = pathname.startsWith(href) && href !== "/cms";
+          const isActive = pathname.startsWith(href);
           return (
             <NavLink key={href} href={href} isActive={isActive}>
               {label}

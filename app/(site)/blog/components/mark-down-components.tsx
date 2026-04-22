@@ -1,4 +1,5 @@
 import { colors, spacing, typography } from "@/app/design-system/token";
+import NextImage from "next/image";
 import { cn } from "@/app/design-system/utils";
 import { Components } from "react-markdown";
 import { CodeBlock } from "./code-block";
@@ -144,4 +145,19 @@ export const MarkDownComponents: Components = {
       {children}
     </td>
   ),
+  img: ({ src, alt }) => {
+    return (
+      <span className="flex justify-center my-8 w-full">
+        <NextImage
+          src={src as string}
+          alt={alt || "Blog image"}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="rounded-lg h-auto max-w-full w-full h-auto"
+          unoptimized
+        />
+      </span>
+    );
+  },
 };
