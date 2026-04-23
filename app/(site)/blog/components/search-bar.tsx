@@ -36,7 +36,7 @@ export function SearchBar({ defaultValue }: { defaultValue?: string }) {
                 <ScreenLoader />
             )}
 
-            <form onSubmit={handleSubmit} className="relative w-full max-w-md">
+            <form onSubmit={handleSubmit} className="relative  w-[250px] md:w-full max-w-md">
                 <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
                     <SearchIcon className="size-4" />
                 </div>

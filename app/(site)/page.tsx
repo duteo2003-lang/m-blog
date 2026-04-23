@@ -18,7 +18,7 @@ export default async function BlogPage({
       <div className={cn(container.maxWidth["4xl"], "mx-auto px-4")}>
         {/* Only show the big branding title if not filtering */}
         <div className="flex items-center justify-between">
-          <h2 className="text-center my-2">
+          <h2 className="text-center my-2 text-sm md:text-2xl">
             Dbt19&apos;s Blog
           </h2>
           <SearchBar key={q || 'empty'} defaultValue={q} />
